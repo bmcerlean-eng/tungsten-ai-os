@@ -76,7 +76,7 @@ Format the briefing with these exact sections:
 Keep it concise, direct, and action-oriented. This is used in real customer meetings.`;
 
   const result = streamText({
-    model: anthropic("claude-3-5-sonnet-20241022"),
+    model: anthropic("claude-sonnet-4-6"),
     system: buildSystemPrompt(ACCOUNTS),
     messages: [{ role: "user", content: prompt }],
     maxTokens: 1500,
