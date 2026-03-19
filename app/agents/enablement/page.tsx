@@ -14,13 +14,13 @@ const TEAM = [
 ];
 
 const BIG_BETS = [
-  { label: "DWA 2026.1", owner: "Richard Haine", desc: "Document Workflow Automation release enablement — seller brief, talk track, Highspot update", color: "bg-blue-50 border-blue-200 text-blue-700" },
-  { label: "IVA 2026.1", owner: "Karen Piszczek", desc: "Invoice Automation release — courses, partner readiness, field communications", color: "bg-purple-50 border-purple-200 text-purple-700" },
-  { label: "Pay+", owner: "Karen Piszczek", desc: "Pay+ product enablement courses and seller readiness package", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-  { label: "Sovos", owner: "Carol Hopke", desc: "Sovos compliance integration enablement for the field", color: "bg-orange-50 border-orange-200 text-orange-700" },
-  { label: "Move-Up", owner: "Team", desc: "Seller enablement for legacy → modern product migration conversations", color: "bg-amber-50 border-amber-200 text-amber-700" },
-  { label: "Knowledge Discovery / Agentic AI", owner: "Richard Haine", desc: "Upskilling field to position Tungsten's agentic AI and knowledge discovery capabilities", color: "bg-cyan-50 border-cyan-200 text-cyan-700" },
-  { label: "MEDDPICC Adoption", owner: "Sarah Johnson", desc: "Global MEDDPICC training and coaching content — Tier 2 seller effectiveness initiative", color: "bg-red-50 border-red-200 text-red-700" },
+  { label: "DWA 2026.1", owner: "Richard Haine", desc: "Document Workflow Automation release enablement — seller brief, talk track, Highspot update", bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-700" },
+  { label: "IVA 2026.1", owner: "Karen Piszczek", desc: "Invoice Automation release — courses, partner readiness, field communications", bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-700" },
+  { label: "Pay+", owner: "Karen Piszczek", desc: "Pay+ product enablement courses and seller readiness package", bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700" },
+  { label: "Sovos", owner: "Carol Hopke", desc: "Sovos compliance integration enablement for the field", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-700" },
+  { label: "Move-Up", owner: "Team", desc: "Seller enablement for legacy → modern product migration conversations", bg: "bg-amber-50", border: "border-amber-200", text: "text-amber-700" },
+  { label: "Knowledge Discovery / Agentic AI", owner: "Richard Haine", desc: "Upskilling field to position Tungsten's agentic AI and knowledge discovery capabilities", bg: "bg-cyan-50", border: "border-cyan-200", text: "text-cyan-700" },
+  { label: "MEDDPICC Adoption", owner: "Sarah Johnson", desc: "Global MEDDPICC training and coaching content — Tier 2 seller effectiveness initiative", bg: "bg-red-50", border: "border-red-200", text: "text-red-700" },
 ];
 
 const PRIORITY_PLAYS = [
@@ -94,10 +94,10 @@ export default function EnablementPage() {
           <h2 className="text-sm font-semibold text-tungsten-navy uppercase tracking-wide">Big Bets — 2026 Strategic Initiatives</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {BIG_BETS.map(({ label, owner, desc, color }) => (
-            <div key={label} className={`border rounded-xl p-4 ${color.split(" ").slice(0, 2).join(" ")} border-opacity-60`}>
+          {BIG_BETS.map(({ label, owner, desc, bg, border, text }) => (
+            <div key={label} className={`border rounded-xl p-4 ${bg} ${border}`}>
               <div className="flex items-center justify-between mb-1">
-                <span className={`text-sm font-semibold ${color.split(" ")[2]}`}>{label}</span>
+                <span className={`text-sm font-semibold ${text}`}>{label}</span>
                 <span className="text-[10px] text-gray-400 font-medium">{owner}</span>
               </div>
               <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
