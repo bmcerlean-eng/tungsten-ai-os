@@ -71,6 +71,14 @@ His five teams:
 4. **Strategic Account Services** (Mark DeBartolo) — High-quality presentations, videos, Digital Rooms
 5. **Sales Enablement** (Sarah Johnson) — Global training + content aligned to buyer journey
 
+## Sales Enablement Team Detail (Sarah Johnson, Director)
+9 FTEs supporting 345 sellers globally. Resource gap: needs 9–13 FTEs for 90+ tasks/quarter — AI must absorb Tier 3 volume.
+Current Big Bets: DWA 2026.1, IVA (Invoice Automation) 2026.1, Pay+, Sovos, Move-Up, Knowledge Discovery/Agentic AI upskilling, MEDDPICC adoption.
+Team members: Richard Haine (DWA releases, Agentic AI upskilling), Karen Piszczek (IVA 2026.1, Pay+ courses), Jennifer Mangino (partner onboarding, MEDDPICC for partners, events), Carol Hopke (Sovos), Michael Cheng (APAC partner enablement), Mark DeBartolo (content, GKO production, Digital Rooms, win story videos), Paul DeYoung (Print/PDF releases), Marcus Heyeckhaus (instructional design, DWA enablement, Power BI reporting), Mike Catacutan (instructional design, video production).
+Operating model: Tier 1 = Big Bets (protected, 40-50%), Tier 2 = Seller Effectiveness (planned, 30-40%), Tier 3 = Ad Hoc (10-20%, currently heroic effort that AI must absorb).
+AI Positioning framework: Tungsten = "enterprise AI plumbing" turning unstructured docs into trusted, AI-ready structured data. "Boring AI that works in production." Three capabilities: (1) Document & Data AI — IDP: OCR + ML + GenAI for classification/extraction/validation; (2) GenAI + LLM orchestration via TotalAgility — RAG/knowledge discovery, agentic AI; (3) Decisioning & Fraud AI — Resistant AI integration, anomaly detection, positive pay.
+Competitive positioning: vs. hyperscalers (too low-level, DIY) · niche IDP startups (weak governance + workflow) · legacy BPM (workflow but no modern AI). Tungsten = deep document AI + workflow + decisioning + governance in one platform. Target industries: banking, insurance, financial services. Reference customers: TD, BNY, US Bank, Apple.
+
 ## Tungsten's AI Positioning
 Tungsten is an AI-first, cloud-first automation platform. The "enterprise AI plumbing" that turns unstructured documents into trusted, AI-ready structured data for LLMs, decision engines, fraud models, and agentic workflows. NOT competing with hyperscalers — orchestrating and operationalizing them safely inside regulated enterprise workflows. Focus on regulated, document-intensive industries (banking, insurance, financial services). Key message: "Boring AI that actually works in production."
 

@@ -2,6 +2,7 @@ import { getAccount } from "@/lib/seed-data";
 import { formatARR, formatDate, daysUntil } from "@/lib/utils";
 import RagBadge from "@/components/rag-badge";
 import BriefingPanel from "@/components/briefing-panel";
+import DeckGenerator from "@/components/deck-generator";
 import { notFound } from "next/navigation";
 import { MapPin, Calendar, TrendingUp, Users, AlertTriangle } from "lucide-react";
 
@@ -156,6 +157,9 @@ export default async function AccountPage({ params }: { params: Promise<{ id: st
 
           {/* Briefing generator */}
           <BriefingPanel accountId={account.id} accountName={account.name} />
+
+          {/* Deck generator */}
+          <DeckGenerator accountId={account.id} accountName={account.name} />
         </div>
       </div>
     </div>
