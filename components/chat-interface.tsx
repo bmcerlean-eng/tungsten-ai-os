@@ -41,21 +41,21 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-white">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
         {messages.length === 0 && (
           <div className="max-w-2xl mx-auto pt-16">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-tungsten-gold/20 border border-tungsten-gold/30 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-tungsten-gold/10 border border-tungsten-gold/30 flex items-center justify-center">
                 <Bot size={20} className="text-tungsten-gold" />
               </div>
               <div>
-                <div className="font-semibold text-white">Tungsten AI OS</div>
-                <div className="text-xs text-slate-400">Strategic Intelligence Assistant</div>
+                <div className="font-semibold text-tungsten-navy">Tungsten AI OS</div>
+                <div className="text-xs text-gray-400">Strategic Intelligence Assistant</div>
               </div>
             </div>
-            <p className="text-slate-300 text-sm mb-8 leading-relaxed">
+            <p className="text-gray-500 text-sm mb-8 leading-relaxed">
               I have context on all your strategic accounts — ARR, relationships, risks, renewal dates, and active signals.
               Ask me anything or use a suggested prompt below.
             </p>
@@ -64,7 +64,7 @@ export default function ChatInterface() {
                 <button
                   key={p}
                   onClick={() => submitPrompt(p)}
-                  className="text-left px-4 py-3 rounded-xl bg-tungsten-surface border border-tungsten-border text-sm text-slate-300 hover:border-tungsten-gold/40 hover:text-white transition-all"
+                  className="text-left px-4 py-3 rounded-xl bg-tungsten-surface border border-tungsten-border text-sm text-gray-600 hover:border-tungsten-navy/30 hover:bg-white hover:text-tungsten-navy transition-all shadow-sm"
                 >
                   {p}
                 </button>
@@ -77,8 +77,8 @@ export default function ChatInterface() {
           <div key={m.id} className={`flex gap-3 max-w-3xl ${m.role === "user" ? "ml-auto flex-row-reverse" : "mr-auto"}`}>
             <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${
               m.role === "user"
-                ? "bg-tungsten-blue text-white"
-                : "bg-tungsten-gold/20 border border-tungsten-gold/30"
+                ? "bg-tungsten-navy text-white"
+                : "bg-tungsten-gold/10 border border-tungsten-gold/30"
             }`}>
               {m.role === "user"
                 ? <User size={14} className="text-white" />
@@ -87,8 +87,8 @@ export default function ChatInterface() {
             </div>
             <div className={`px-4 py-3 rounded-2xl text-sm max-w-[85%] ${
               m.role === "user"
-                ? "bg-tungsten-blue text-white rounded-tr-sm"
-                : "bg-tungsten-surface border border-tungsten-border text-slate-200 rounded-tl-sm"
+                ? "bg-tungsten-navy text-white rounded-tr-sm"
+                : "bg-white border border-tungsten-border text-gray-700 rounded-tl-sm shadow-sm"
             }`}>
               {m.role === "user" ? (
                 <p>{m.content}</p>
@@ -103,14 +103,14 @@ export default function ChatInterface() {
 
         {isLoading && (
           <div className="flex gap-3 max-w-3xl">
-            <div className="w-8 h-8 rounded-full flex-shrink-0 bg-tungsten-gold/20 border border-tungsten-gold/30 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full flex-shrink-0 bg-tungsten-gold/10 border border-tungsten-gold/30 flex items-center justify-center">
               <Bot size={14} className="text-tungsten-gold" />
             </div>
-            <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-tungsten-surface border border-tungsten-border">
+            <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-white border border-tungsten-border shadow-sm">
               <div className="flex gap-1 items-center h-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0ms]" />
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:150ms]" />
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:300ms]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300 animate-bounce [animation-delay:0ms]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300 animate-bounce [animation-delay:150ms]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300 animate-bounce [animation-delay:300ms]" />
               </div>
             </div>
           </div>
@@ -120,9 +120,9 @@ export default function ChatInterface() {
       </div>
 
       {/* Input */}
-      <div className="border-t border-tungsten-border px-4 py-4">
+      <div className="border-t border-tungsten-border px-4 py-4 bg-white">
         <form id="chat-form" onSubmit={handleSubmit} className="max-w-3xl mx-auto">
-          <div className="flex gap-3 items-end bg-tungsten-surface border border-tungsten-border rounded-2xl px-4 py-3 focus-within:border-tungsten-gold/50 transition-colors">
+          <div className="flex gap-3 items-end bg-tungsten-surface border border-tungsten-border rounded-2xl px-4 py-3 focus-within:border-tungsten-navy/40 focus-within:bg-white transition-colors shadow-sm">
             <textarea
               ref={inputRef}
               value={input}
@@ -130,17 +130,17 @@ export default function ChatInterface() {
               onKeyDown={handleKeyDown}
               placeholder="Ask about accounts, generate briefings, draft communications..."
               rows={1}
-              className="flex-1 bg-transparent resize-none text-sm text-white placeholder-slate-500 outline-none max-h-32 leading-relaxed"
+              className="flex-1 bg-transparent resize-none text-sm text-gray-800 placeholder-gray-400 outline-none max-h-32 leading-relaxed"
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="w-8 h-8 rounded-xl bg-tungsten-gold flex items-center justify-center flex-shrink-0 disabled:opacity-30 hover:bg-amber-400 transition-colors"
+              className="w-8 h-8 rounded-xl bg-tungsten-navy flex items-center justify-center flex-shrink-0 disabled:opacity-30 hover:bg-tungsten-blue transition-colors"
             >
-              <Send size={14} className="text-tungsten-dark" />
+              <Send size={14} className="text-white" />
             </button>
           </div>
-          <p className="text-center text-xs text-slate-600 mt-2">Shift+Enter for new line · Enter to send</p>
+          <p className="text-center text-xs text-gray-400 mt-2">Shift+Enter for new line · Enter to send</p>
         </form>
       </div>
     </div>

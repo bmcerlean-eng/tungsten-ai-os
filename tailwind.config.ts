@@ -14,8 +14,8 @@ const config: Config = {
           blue: "#1E4D8C",
           gold: "#F5A623",
           dark: "#0D1B2A",
-          surface: "#112240",
-          border: "#1E3A5F",
+          surface: "#F8F9FC",
+          border: "#E5E9F0",
         },
       },
       fontFamily: {

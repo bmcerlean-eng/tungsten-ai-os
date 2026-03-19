@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #0D1B2A;
-  --surface: #112240;
-  --border: #1E3A5F;
-  --text: #E8EEF4;
-  --text-muted: #8BA3BC;
+  --background: #FFFFFF;
+  --surface: #F8F9FC;
+  --border: #E5E9F0;
+  --text: #0D1B2A;
+  --text-muted: #6B7E95;
   --navy: #002855;
   --gold: #F5A623;
 }
@@ -21,11 +21,12 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #D1D9E6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #B0BDD0; }
 
 /* Markdown prose in chat */
 .prose-chat h1, .prose-chat h2, .prose-chat h3 {
-  color: #E8EEF4;
+  color: #002855;
   font-weight: 600;
   margin: 0.75rem 0 0.25rem;
 }
@@ -34,11 +35,12 @@ body {
 .prose-chat p { margin: 0.4rem 0; line-height: 1.6; }
 .prose-chat ul, .prose-chat ol { padding-left: 1.25rem; margin: 0.4rem 0; }
 .prose-chat li { margin: 0.2rem 0; }
-.prose-chat strong { color: #F5A623; font-weight: 600; }
+.prose-chat strong { color: #C07F00; font-weight: 600; }
 .prose-chat code {
-  background: #1E3A5F;
+  background: #EFF2F7;
+  color: #002855;
   padding: 0.1rem 0.3rem;
   border-radius: 3px;
   font-size: 0.85em;
 }
-.prose-chat hr { border-color: #1E3A5F; margin: 0.75rem 0; }
+.prose-chat hr { border-color: #E5E9F0; margin: 0.75rem 0; }

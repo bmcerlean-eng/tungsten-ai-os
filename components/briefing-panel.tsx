@@ -25,7 +25,6 @@ export default function BriefingPanel({ accountId, accountName }: { accountId: s
       const { done, value } = await reader.read();
       if (done) break;
       const chunk = decoder.decode(value);
-      // Parse Vercel AI data stream format
       const lines = chunk.split("\n");
       for (const line of lines) {
         if (line.startsWith("0:")) {
@@ -53,16 +52,16 @@ export default function BriefingPanel({ accountId, accountName }: { accountId: s
   };
 
   return (
-    <div className="bg-tungsten-surface border border-tungsten-border rounded-xl overflow-hidden">
-      <div className="px-5 py-3 border-b border-tungsten-border flex items-center justify-between">
+    <div className="bg-white border border-tungsten-border rounded-xl overflow-hidden shadow-sm">
+      <div className="px-5 py-3 border-b border-tungsten-border bg-tungsten-surface flex items-center justify-between">
         <div className="flex items-center gap-2">
           <FileText size={14} className="text-tungsten-gold" />
-          <h2 className="text-sm font-semibold text-white">Account Briefing</h2>
+          <h2 className="text-sm font-semibold text-tungsten-navy">Account Briefing</h2>
         </div>
         {generated && (
           <button
             onClick={download}
-            className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-tungsten-navy transition-colors"
           >
             <Download size={12} />
             Download
@@ -73,12 +72,12 @@ export default function BriefingPanel({ accountId, accountName }: { accountId: s
       <div className="px-5 py-4">
         {!briefing && !loading && (
           <div className="text-center py-8">
-            <div className="text-slate-400 text-sm mb-4">
+            <div className="text-gray-400 text-sm mb-4">
               Generate a pre-meeting briefing with account status, relationship map, risks, and recommended actions.
             </div>
             <button
               onClick={generate}
-              className="px-5 py-2.5 rounded-xl bg-tungsten-gold text-tungsten-dark font-semibold text-sm hover:bg-amber-400 transition-colors"
+              className="px-5 py-2.5 rounded-xl bg-tungsten-navy text-white font-semibold text-sm hover:bg-tungsten-blue transition-colors"
             >
               Generate Briefing
             </button>
@@ -86,7 +85,7 @@ export default function BriefingPanel({ accountId, accountName }: { accountId: s
         )}
 
         {loading && !briefing && (
-          <div className="flex items-center justify-center gap-2 py-8 text-slate-400 text-sm">
+          <div className="flex items-center justify-center gap-2 py-8 text-gray-400 text-sm">
             <Loader2 size={16} className="animate-spin text-tungsten-gold" />
             Generating briefing...
           </div>
@@ -98,7 +97,7 @@ export default function BriefingPanel({ accountId, accountName }: { accountId: s
             {!loading && (
               <button
                 onClick={generate}
-                className="mt-4 text-xs text-slate-500 hover:text-slate-300 transition-colors"
+                className="mt-4 text-xs text-gray-400 hover:text-tungsten-navy transition-colors"
               >
                 Regenerate
               </button>

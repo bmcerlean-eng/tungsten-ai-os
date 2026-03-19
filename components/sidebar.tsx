@@ -1,5 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import { MessageSquare, LayoutDashboard, Users, Settings, Zap } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { MessageSquare, LayoutDashboard, Users, Settings } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "/", icon: MessageSquare, label: "Chat" },
@@ -8,74 +13,99 @@ const nav = [
 ];
 
 const agents = [
-  { href: "/agents/se-leads", label: "SE Leads", initial: "V" },
+  { href: "/agents/se-leads", label: "Strategic Engagements", initial: "V" },
   { href: "/agents/move-up", label: "Move Up", initial: "D" },
-  { href: "/agents/ve", label: "Value Engineering", initial: "T" },
-  { href: "/agents/account-services", label: "Acct Services", initial: "M" },
+  { href: "/agents/value-engineering", label: "Value Engineering", initial: "T" },
+  { href: "/agents/account-services", label: "Strategic Account Services", initial: "M" },
   { href: "/agents/enablement", label: "Enablement", initial: "S" },
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <aside className="w-56 flex-shrink-0 flex flex-col bg-tungsten-surface border-r border-tungsten-border">
-      {/* Logo */}
-      <div className="px-4 py-5 border-b border-tungsten-border">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded bg-tungsten-gold flex items-center justify-center">
-            <Zap size={14} className="text-tungsten-dark" />
-          </div>
-          <div>
-            <div className="text-xs font-bold text-white tracking-wide">TUNGSTEN</div>
-            <div className="text-[10px] text-tungsten-gold font-medium tracking-widest">AI OS</div>
-          </div>
-        </div>
-      </div>
+    <aside className="w-60 flex-shrink-0 flex flex-col bg-white border-r border-tungsten-border">
+      {/* Logo — clickable, returns to home */}
+      <Link href="/" className="px-5 py-4 border-b border-tungsten-border flex items-center gap-3 hover:bg-tungsten-surface transition-colors group">
+        <Image
+          src="/tungsten-logo-blue.jpg"
+          alt="Tungsten Automation"
+          width={120}
+          height={32}
+          className="object-contain"
+          priority
+        />
+      </Link>
 
       {/* Main nav */}
-      <nav className="px-2 pt-4 space-y-0.5">
-        {nav.map(({ href, icon: Icon, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-tungsten-border hover:text-white transition-colors"
-          >
-            <Icon size={16} />
-            {label}
-          </Link>
-        ))}
+      <nav className="px-3 pt-4 space-y-0.5">
+        {nav.map(({ href, icon: Icon, label }) => {
+          const active = pathname === href;
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                active
+                  ? "bg-tungsten-navy text-white"
+                  : "text-gray-600 hover:bg-tungsten-surface hover:text-tungsten-navy"
+              )}
+            >
+              <Icon size={16} />
+              {label}
+            </Link>
+          );
+        })}
       </nav>
 
       {/* Team agents */}
       <div className="px-4 pt-6 pb-2">
-        <div className="text-[10px] font-semibold text-slate-500 tracking-widest uppercase">Teams</div>
+        <div className="text-[10px] font-semibold text-gray-400 tracking-widest uppercase">Teams</div>
       </div>
-      <nav className="px-2 space-y-0.5">
-        {agents.map(({ href, label, initial }) => (
-          <Link
-            key={href}
-            href={href}
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-tungsten-border hover:text-white transition-colors"
-          >
-            <span className="w-5 h-5 rounded-full bg-tungsten-blue flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0">
-              {initial}
-            </span>
-            {label}
-          </Link>
-        ))}
+      <nav className="px-3 space-y-0.5">
+        {agents.map(({ href, label, initial }) => {
+          const active = pathname === href;
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors",
+                active
+                  ? "bg-tungsten-navy text-white"
+                  : "text-gray-600 hover:bg-tungsten-surface hover:text-tungsten-navy"
+              )}
+            >
+              <span className={cn(
+                "w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0",
+                active ? "bg-white/20 text-white" : "bg-tungsten-navy text-white"
+              )}>
+                {initial}
+              </span>
+              <span className="truncate">{label}</span>
+            </Link>
+          );
+        })}
       </nav>
 
       {/* Bottom */}
-      <div className="mt-auto px-2 pb-4 border-t border-tungsten-border pt-4">
+      <div className="mt-auto px-3 pb-4 border-t border-tungsten-border pt-4">
         <Link
           href="/settings"
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-tungsten-border hover:text-white transition-colors"
+          className={cn(
+            "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+            pathname === "/settings"
+              ? "bg-tungsten-navy text-white"
+              : "text-gray-500 hover:bg-tungsten-surface hover:text-tungsten-navy"
+          )}
         >
           <Settings size={16} />
           Settings
         </Link>
         <div className="px-3 pt-3">
-          <div className="text-xs text-slate-500">Barry McErlean</div>
-          <div className="text-[11px] text-slate-600">VP Strategic Engagements</div>
+          <div className="text-xs font-medium text-gray-700">Barry McErlean</div>
+          <div className="text-[11px] text-gray-400">VP Strategic Engagements</div>
         </div>
       </div>
     </aside>
